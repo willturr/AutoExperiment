@@ -1,0 +1,20 @@
+#gradle stuff
+
+.gradle/
+build/
+out/
+classes/
+logs/
+
+#intellij
+
+/.idea
+*.iml
+*.ipr
+*.iws
+
+#steve jobs
+*.DS_Store
+
+#fabric
+run/

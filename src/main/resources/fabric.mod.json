@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "etsolver",
+  "version": "${version}",
+  "name": "etsolver",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/etsolver/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.willturr.etsolver.client.EtsolverClient"
+    ],
+    "main": [
+      "com.willturr.etsolver.Etsolver"
+    ]
+  },
+  "mixins": [
+    "etsolver.mixins.json",
+    {
+      "config": "etsolver.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
