@@ -2,6 +2,7 @@ package com.willturr.etsolver.client.mixins;
 
 import com.willturr.etsolver.client.config.Config;
 import com.willturr.etsolver.client.config.ConfigManager;
+import com.willturr.etsolver.client.modules.SolverManager;
 
 import com.willturr.etsolver.client.screens.ConfigScreen;
 import net.minecraft.client.gui.DrawContext;
@@ -19,6 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * This mixin targets HandledScreen, which is the correct base class for GUIs
@@ -31,11 +33,10 @@ public abstract class ContainerScreenMixin extends Screen {
     //container titles where options will appear
     @Unique
     private static final List<String> TARGET_SCREEN_TITLES = Arrays.asList(
-            "Reforge Anvil",
-            "Craft Item",
-            "Your Example Merchant",
-            "Chest",
-            "Experimentation Table"
+            //"etsolver debug",
+            //"Experimentation Table",
+            "Chronomatron ➜ Stakes",
+            "Ultrasequencer ➜ Stakes"
     );
 
     //use @Shadow to get access to protected fields from target class
@@ -69,6 +70,7 @@ public abstract class ContainerScreenMixin extends Screen {
                 if (this.client != null) {
                     //forgoing this in favour of an all-next-to-container gui. may change?
                     //this.client.setScreen(new ConfigScreen(this));
+                    SolverManager.starterMotor();
                 }
             }).dimensions(buttonX, buttonY, 100, 20).build();
 
