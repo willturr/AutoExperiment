@@ -1,5 +1,6 @@
 package com.willturr.etsolver.client;
 
+import com.willturr.etsolver.client.config.ConfigManager;
 import com.willturr.etsolver.client.modules.SolverManager;
 import net.fabricmc.api.ClientModInitializer;
 import org.apache.commons.logging.LogFactory;
@@ -17,6 +18,7 @@ public class EtsolverClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         LOGGER.info("Loading etsolver...");
+        ConfigManager.loadConfig();
 
         //ContainerManager.init();
         SolverManager.init();

@@ -1,10 +1,14 @@
 package com.willturr.etsolver.client.mixins;
 
+import com.willturr.etsolver.client.config.Config;
+import com.willturr.etsolver.client.config.ConfigManager;
+
 import com.willturr.etsolver.client.screens.ConfigScreen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.SliderWidget;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,26 +28,25 @@ import java.util.List;
 @Mixin(HandledScreen.class)
 public abstract class ContainerScreenMixin extends Screen {
 
-    // A list of screen titles where you want the button to appear.
+    //container titles where options will appear
     @Unique
     private static final List<String> TARGET_SCREEN_TITLES = Arrays.asList(
             "Reforge Anvil",
             "Craft Item",
             "Your Example Merchant",
-            "Chest"
-            // Add any other screen titles you want to target here.
+            "Chest",
+            "Experimentation Table"
     );
 
-    // Using @Shadow to get access to protected fields from the target class.
+    //use @Shadow to get access to protected fields from target class
     @Shadow protected int x;
     @Shadow protected int y;
     @Shadow protected int backgroundWidth;
 
-    // Store the button and related text to render them.
     @Unique
     private ButtonWidget modSettingsButton;
     @Unique
-    private Text modInfoText;
+    private SliderWidget tickSlider;
     @Unique
     private boolean shouldRenderElements = false;
 
@@ -60,16 +63,37 @@ public abstract class ContainerScreenMixin extends Screen {
             this.shouldRenderElements = true;
 
             int buttonX = this.x + this.backgroundWidth + 5;
-            int buttonY = this.y + 20;
+            int buttonY = this.y;
 
-            this.modSettingsButton = ButtonWidget.builder(Text.of("Mod Settings"), button -> {
+            this.modSettingsButton = ButtonWidget.builder(Text.of("Start!"), button -> {
                 if (this.client != null) {
-                    this.client.setScreen(new ConfigScreen(this));
+                    //forgoing this in favour of an all-next-to-container gui. may change?
+                    //this.client.setScreen(new ConfigScreen(this));
                 }
             }).dimensions(buttonX, buttonY, 100, 20).build();
 
-            this.modInfoText = Text.of("QoL Mod Options");
+            this.tickSlider = new SliderWidget(buttonX, (buttonY + 25), 100, 20, Text.of(""), Config.universalTickDelay/10) {
+
+                //instance initialiser so the slider has text from the getgo
+                {
+                    updateMessage();
+                }
+
+                @Override
+                protected void updateMessage() {
+                    setMessage(Text.of("Tick Delay: " + (int)(10 * this.value)));
+                }
+
+                @Override
+                protected void applyValue() {
+                    Config.universalTickDelay = (int)(10 * this.value);
+                    ConfigManager.saveConfig();
+                }
+            };
+
             this.addDrawableChild(this.modSettingsButton);
+
+            this.addDrawableChild(this.tickSlider);
         }
     }
 
