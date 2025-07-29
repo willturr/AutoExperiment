@@ -15,6 +15,7 @@ Maximising Enchanting XP from the Experimentation Table is tedious enough, let a
 
 ## todo:
 
+- Latest version support
 - Allow adjustment for amount of Chronomatron cycles to stop after
 - Allow options for Superpairs automation -
 - thus allowing for full automation, with no user input.
