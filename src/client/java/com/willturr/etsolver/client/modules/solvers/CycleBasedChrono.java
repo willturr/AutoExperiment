@@ -66,7 +66,7 @@ public class CycleBasedChrono extends AbstractSolver {
                         glintFound = true; //block becomes focus, and cycle repeats when block is no longer glinting
                         glintFoundAt = i;
                         clickStack.add(TERRACOTTA_TO_GLASS.get(inventory.getStack(i).getItem()));
-                        System.out.println(clickStack);
+                        //System.out.println(clickStack);
                         break;
                     }
                 }
@@ -99,7 +99,7 @@ public class CycleBasedChrono extends AbstractSolver {
                     if (inventory.getStack(i).getItem() == clickStack.getFirst()) {
                         pauseIndex = i;
                         ClientPlayerInteractionManager interactionManager = client.interactionManager;
-                        System.out.println("Attempting to click " + clickStack.getFirst());
+                        //System.out.println("Attempting to click " + clickStack.getFirst());
                         interactionManager.clickSlot(
                                 screen.getScreenHandler().syncId,
                                 i,

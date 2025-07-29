@@ -40,7 +40,7 @@ public class UltrasequencerSolver extends AbstractSolver{
                     //System.out.println(inventory.getStack(i).getItem().getName().getString());
                     if (inventory.getStack(i).getCount() == (clickStack.size() + 1)) {
                         clickStack.add(i); //add item index to stack
-                        System.out.println(clickStack);
+                        //System.out.println(clickStack);
                     }
                 }
             }
@@ -67,7 +67,7 @@ public class UltrasequencerSolver extends AbstractSolver{
                 if (!clickStack.isEmpty()) {
                     if (i == clickStack.getFirst()) {
                         ClientPlayerInteractionManager interactionManager = client.interactionManager;
-                        System.out.println("Clicking slot " + i);
+                        //System.out.println("Clicking slot " + i);
                         interactionManager.clickSlot(
                                 screen.getScreenHandler().syncId,
                                 i,
