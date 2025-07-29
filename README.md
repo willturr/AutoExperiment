@@ -1,4 +1,4 @@
-# etsolver: rudimentary experimentation table minigame automation
+# AutoExperiment: Rudimentary Experimentation Table minigame automation
 
 Maximising Enchanting XP from the Experimentation Table is tedious enough, let alone if you have to click it yourself.
 
