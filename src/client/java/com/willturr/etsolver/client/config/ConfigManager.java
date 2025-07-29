@@ -1,14 +1,8 @@
 package com.willturr.etsolver.client.config;
 
-import com.willturr.etsolver.client.config.Config;
-
 import net.fabricmc.loader.api.FabricLoader;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class ConfigManager {
 

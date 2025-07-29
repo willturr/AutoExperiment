@@ -4,7 +4,6 @@ import com.willturr.etsolver.client.config.Config;
 import com.willturr.etsolver.client.config.ConfigManager;
 import com.willturr.etsolver.client.modules.SolverManager;
 
-import com.willturr.etsolver.client.screens.ConfigScreen;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
@@ -20,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * This mixin targets HandledScreen, which is the correct base class for GUIs

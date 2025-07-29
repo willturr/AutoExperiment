@@ -3,7 +3,6 @@ package com.willturr.etsolver.client.modules;
 import com.willturr.etsolver.client.modules.solvers.*;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.Items;
